@@ -1,4 +1,4 @@
-#include <stdio_ext.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "utn.h"
 static int getInt (int* numero);
@@ -30,7 +30,7 @@ int utn_getNumero(int* pNumero,int reintentos,char* mensaje,char* mensajeError,i
         {
             printf("%s",mensajeError);
             printf("\nNo es un numero\n");
-            __fpurge(stdin);
+            fflush(stdin);
         }
     }
     return retorno;
@@ -61,7 +61,7 @@ float utn_getNumeroDecimal (float* pNumero,int reintentos,char* mensaje,char* me
         {
             printf("%s",mensajeError);
             printf("\nNo es un numero\n");
-            __fpurge(stdin);
+            fflush(stdin);
         }
     }
     return retorno;

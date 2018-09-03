@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1535967328 source:c:\users\lucas\desktop\programacion\tps laborario 1\tp1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+
+1535967543 c:\users\lucas\desktop\programacion\tps laborario 1\tp1\utn.h
+
+1535967607 source:c:\users\lucas\desktop\programacion\tps laborario 1\tp1\utn.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+
