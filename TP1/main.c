@@ -7,6 +7,11 @@ int main()
     int ingreso;
     float ingresoDatosA;
     float ingresoDatosB;
+    float resultado1;
+    float resultado2;
+    float resultado3;
+    float resultado4;
+    float resultado5;
     int flag=0;
 
     do{
