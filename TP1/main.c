@@ -5,21 +5,23 @@
 int main()
 {
     int ingreso;
-    int ingresoDatosA;
-    int ingresoDatosB;
+    float ingresoDatosA;
+    float ingresoDatosB;
     int flag=0;
 
     do{
-        printf("MENÚ:\n1-Ingreso Operando A\n2- Ingreso Operando B\n3- Realizar Operaciones\n4- Mostrar los resultados\n5- Salir\nQue quiere hacer?:\t");
-        scanf("%d",&ingreso);
+       printf("MENÚ:\n1-Ingreso Operando A\n2- Ingreso Operando B\n3- Realizar Operaciones\n4- Mostrar los resultados\n5- Salir\nQue quiere hacer?:\t");
+       utn_getNumero(&ingreso,5,"Ingrese el numero de su opcion:\t","ERROR!!! su error es:",1,6);
        switch(ingreso)
     {
     case 1:
-
+        utn_getNumeroDecimal(&ingresoDatosA,5,"Ingrese un numero (con o sin decimales)","ERROR!!! Su error es:",-1001,1001);
         break;
     case 2:
+        utn_getNumeroDecimal(&ingresoDatosB,5,"Ingrese un numero (con o sin decimales)","ERROR!!! Su error es:",-1001,1001);
         break;
     case 3:
+
         break;
     case 4:
         break;

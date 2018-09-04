@@ -67,6 +67,8 @@ float utn_getNumeroDecimal (float* pNumero,int reintentos,char* mensaje,char* me
     return retorno;
 }
 
+int utn_realizarOperaciones (float* pNumero1,float* p)
+
 static int getInt (int* numero){
     int ingreso;
     int retorno;
