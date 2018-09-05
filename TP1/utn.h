@@ -37,8 +37,17 @@ float utn_getNumeroDecimal (float* pNumero,int reintentos,char* mensaje,char* me
     @return 0 OK, -1 ERROR
  */
 
-
 int utn_realizarOperaciones (float* pNumero1,float* pNumero2,float* resultadoSuma,float* resultadoResta,
                              float* resultadoMultiplicacion,float* resultadoDivision,float* resultadoFactorial);
 
+/**
+    utn_imprimirResultados: imprime los resultados de las operaciones anteriormente hechas
+    @param resultadoSuma: puntero al resultado de la suma
+    @param resultadoResta: puntero al resultado de la resta
+    @param resultadoMultiplicacion: puntero al resultado de la multiplicacion
+    @param resultadoDivision: puntero al resultado de la division
+    @param resultadoFactorial: puntero al resultado de la factorial
+ */
+void utn_imprimirResultados(float* resultadoSuma,float* resultadoResta,
+                             float* resultadoMultiplicacion,float* resultadoDivision,float* resultadoFactorial);
 #endif // UTN_H_INCLUDED

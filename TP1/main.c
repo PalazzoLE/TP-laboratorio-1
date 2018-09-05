@@ -29,11 +29,12 @@ int main()
         system("cls");
         break;
     case 3:
-        utn_realizarOperaciones(&ingresoDatosA,&ingresoDatosB,&resultado1,&resultado2,&resultado3,&resultado4,&resultado5);
         system("cls");
+        utn_realizarOperaciones(&ingresoDatosA,&ingresoDatosB,&resultado1,&resultado2,&resultado3,&resultado4,&resultado5);
         break;
     case 4:
-        printf("\nEl resultado de la suma es %.2f y el de la resta %.2f",resultado1,resultado2);
+        system("cls");
+        utn_imprimirResultados(&resultado1,&resultado2,&resultado3,&resultado4,&resultado5);
         break;
     case 5:
         flag=1;

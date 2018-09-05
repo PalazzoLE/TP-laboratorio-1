@@ -8,6 +8,7 @@ static float operacionSuma(float* operando1, float* operando2);
 static float operacionResta(float* operando1, float* operando2);
 static float operacionMultiplicacion(float* operando1, float* operando2);
 static float operacionDivision (float* operando1, float* operando2);
+static float operacionFactorial (float* operando1);
 
 int utn_getNumero(int* pNumero,int reintentos,char* mensaje,char* mensajeError,int min,int max)
 {
@@ -89,12 +90,35 @@ int utn_realizarOperaciones (float* pNumero1,float* pNumero2,float* resultadoSum
     auxiliarResultado2 = operacionResta(&auxiliarOperando1,&auxiliarOperando2);
     auxiliarResultado3 = operacionMultiplicacion(&auxiliarOperando1,&auxiliarOperando2);
     auxiliarResultado4 = operacionDivision(&auxiliarOperando1,&auxiliarOperando2);
+    if(operacionFactorial(&auxiliarOperando1)==-1){
+        printf("ERROR!!! No se puede realizar una factorial con un negativo o 0");
+    }else{
+        auxiliarResultado5 = operacionFactorial(&auxiliarOperando1);
+    }
     *resultadoSuma = auxiliarResultado1;
     *resultadoResta= auxiliarResultado2;
     *resultadoMultiplicacion = auxiliarResultado3;
     *resultadoDivision = auxiliarResultado4;
+    *resultadoFactorial = auxiliarResultado5;
 
     return retorno;
+}
+
+void utn_imprimirResultados(float* resultadoSuma,float* resultadoResta,
+                             float* resultadoMultiplicacion,float* resultadoDivision,float* resultadoFactorial)
+{
+    printf("LOS RESULTADOS DE LAS OPERACIONES SON:\n *SUMA: %.2f\n*RESTA: %.2f\n*MULTIPLICACION: %.2f",*resultadoSuma,*resultadoResta,*resultadoMultiplicacion);
+    if (*resultadoDivision == -10000){
+        printf("*Division: no pudo realizarse");
+    }else{
+        printf("*Division: %.2f\n",*resultadoDivision);
+    }
+    if (*resultadoFactorial == -1){
+        printf("*Factorial: no pudo realizarse");
+    }else{
+        printf("*Factorial: %.2f\n",*resultadoFactorial);
+    }
+
 }
 
 static int getInt (int* numero){
@@ -159,8 +183,26 @@ static float operacionDivision (float* operando1, float* operando2)
     float resultado=0;
     if (auxiliarOperando2==0){
         printf("\nLa operacion de Division no pudo realizarse: (divisor es 0)\nPor favor reingrese los operandos e intente devuelta");
+        return -10000;
     }else{
         resultado = auxiliarOperando / auxiliarOperando2;
     }
     return resultado;
+}
+
+static float operacionFactorial (float* operando1)
+{
+    float auxiliarOperando= *operando1;
+    long respuesta;
+    if(auxiliarOperando<=1){
+        respuesta = -1;
+    }else{
+        if (auxiliarOperando == 1)
+        {
+            return 1;
+        }else{
+           respuesta = auxiliarOperando * operacionFactorial(&auxiliarOperando - 1);
+        }
+    }
+    return respuesta;
 }
