@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdlib.h>
 #include "utn.h"
 
 int main()
@@ -15,20 +16,24 @@ int main()
     int flag=0;
 
     do{
-       printf("MENÚ:\n1-Ingreso Operando A\n2- Ingreso Operando B\n3- Realizar Operaciones\n4- Mostrar los resultados\n5- Salir\nQue quiere hacer?:\t");
-       utn_getNumero(&ingreso,5,"Ingrese el numero de su opcion:\t","ERROR!!! su error es:",1,6);
+       printf("MENU:\n1-Ingreso Operando A\n2- Ingreso Operando B\n3- Realizar Operaciones\n4- Mostrar los resultados\n5- Salir");
+       utn_getNumero(&ingreso,5,"\nIngrese el numero de su opcion:\t","ERROR!!! su error es:",1,6);
        switch(ingreso)
     {
     case 1:
         utn_getNumeroDecimal(&ingresoDatosA,5,"Ingrese un numero (con o sin decimales)","ERROR!!! Su error es:",-1001,1001);
+        system("cls");
         break;
     case 2:
         utn_getNumeroDecimal(&ingresoDatosB,5,"Ingrese un numero (con o sin decimales)","ERROR!!! Su error es:",-1001,1001);
+        system("cls");
         break;
     case 3:
-
+        utn_realizarOperaciones(&ingresoDatosA,&ingresoDatosB,&resultado1,&resultado2,&resultado3,&resultado4,&resultado5);
+        system("cls");
         break;
     case 4:
+        printf("\nEl resultado de la suma es %.2f y el de la resta %.2f",resultado1,resultado2);
         break;
     case 5:
         flag=1;

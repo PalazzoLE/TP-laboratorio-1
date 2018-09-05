@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdlib.h>
 #include "utn.h"
 static int getInt (int* numero);
 static float getFloat (float* numero);
+static float operacionSuma(float* operando1, float* operando2);
+static float operacionResta(float* operando1, float* operando2);
 
 int utn_getNumero(int* pNumero,int reintentos,char* mensaje,char* mensajeError,int min,int max)
 {
@@ -55,6 +58,7 @@ float utn_getNumeroDecimal (float* pNumero,int reintentos,char* mensaje,char* me
             {
                 printf("%s",mensajeError);
                 printf("\nfuera de rango [%f-%f]\n",min,max);
+                fflush(stdin);
             }
         }
         else
@@ -70,7 +74,20 @@ float utn_getNumeroDecimal (float* pNumero,int reintentos,char* mensaje,char* me
 int utn_realizarOperaciones (float* pNumero1,float* pNumero2,float* resultadoSuma,float* resultadoResta,
                              float* resultadoMultiplicacion,float* resultadoDivision,float* resultadoFactorial)
 {
-    int retorno;
+    int retorno = 0;
+    float auxiliarOperando1= *pNumero1;
+    float auxiliarOperando2= *pNumero2;
+    float auxiliarResultado1;
+    float auxiliarResultado2;
+    float auxiliarResultado3;
+    float auxiliarResultado4;
+    float auxiliarResultado5;
+
+    auxiliarResultado1 = operacionSuma(&auxiliarOperando1,&auxiliarOperando2);
+    auxiliarResultado2 = operacionResta(&auxiliarOperando1,&auxiliarOperando2);
+    *resultadoSuma = auxiliarResultado1;
+    *resultadoResta= auxiliarResultado2;
+
     return retorno;
 }
 
@@ -98,11 +115,24 @@ static float getFloat (float* numero){
     return retorno;
 }
 
-static float(float* operando1, float* operando2,float* resultado)
+static float operacionSuma(float* operando1, float* operando2)
 {
-    float auxiliarOperando=0;
-    float auxiliarOperando2=0;
-    float auxiliarResultado=0;
+    float auxiliarOperando= *operando1;
+    float auxiliarOperando2= *operando2;
+    float resultado=0;
 
+    resultado=auxiliarOperando+auxiliarOperando2;
 
+    return resultado;
+}
+
+static float operacionResta(float* operando1, float* operando2)
+{
+    float auxiliarOperando= *operando1;
+    float auxiliarOperando2= *operando2;
+    float resultado=0;
+
+    resultado=auxiliarOperando-auxiliarOperando2;
+
+    return resultado;
 }
