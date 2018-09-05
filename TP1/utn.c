@@ -107,7 +107,7 @@ int utn_realizarOperaciones (float* pNumero1,float* pNumero2,float* resultadoSum
 void utn_imprimirResultados(float* resultadoSuma,float* resultadoResta,
                              float* resultadoMultiplicacion,float* resultadoDivision,float* resultadoFactorial)
 {
-    printf("LOS RESULTADOS DE LAS OPERACIONES SON:\n *SUMA: %.2f\n*RESTA: %.2f\n*MULTIPLICACION: %.2f",*resultadoSuma,*resultadoResta,*resultadoMultiplicacion);
+    printf("LOS RESULTADOS DE LAS OPERACIONES SON:\n *SUMA: %.2f\n*RESTA: %.2f\n*MULTIPLICACION: %.2f\n",*resultadoSuma,*resultadoResta,*resultadoMultiplicacion);
     if (*resultadoDivision == -10000){
         printf("*Division: no pudo realizarse");
     }else{
@@ -194,14 +194,14 @@ static float operacionFactorial (float* operando1)
 {
     float auxiliarOperando= *operando1;
     long respuesta;
+    int i;
     if(auxiliarOperando<=1){
         respuesta = -1;
     }else{
-        if (auxiliarOperando == 1)
+        respuesta=auxiliarOperando;
+        for(i=auxiliarOperando-1;i>1;i--)
         {
-            return 1;
-        }else{
-           respuesta = auxiliarOperando * operacionFactorial(&auxiliarOperando - 1);
+            respuesta=respuesta*i;
         }
     }
     return respuesta;
