@@ -97,3 +97,12 @@ static float getFloat (float* numero){
     }
     return retorno;
 }
+
+static float(float* operando1, float* operando2,float* resultado)
+{
+    float auxiliarOperando=0;
+    float auxiliarOperando2=0;
+    float auxiliarResultado=0;
+
+
+}
