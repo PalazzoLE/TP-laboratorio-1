@@ -6,6 +6,8 @@ static int getInt (int* numero);
 static float getFloat (float* numero);
 static float operacionSuma(float* operando1, float* operando2);
 static float operacionResta(float* operando1, float* operando2);
+static float operacionMultiplicacion(float* operando1, float* operando2);
+static float operacionDivision (float* operando1, float* operando2);
 
 int utn_getNumero(int* pNumero,int reintentos,char* mensaje,char* mensajeError,int min,int max)
 {
@@ -85,8 +87,12 @@ int utn_realizarOperaciones (float* pNumero1,float* pNumero2,float* resultadoSum
 
     auxiliarResultado1 = operacionSuma(&auxiliarOperando1,&auxiliarOperando2);
     auxiliarResultado2 = operacionResta(&auxiliarOperando1,&auxiliarOperando2);
+    auxiliarResultado3 = operacionMultiplicacion(&auxiliarOperando1,&auxiliarOperando2);
+    auxiliarResultado4 = operacionDivision(&auxiliarOperando1,&auxiliarOperando2);
     *resultadoSuma = auxiliarResultado1;
     *resultadoResta= auxiliarResultado2;
+    *resultadoMultiplicacion = auxiliarResultado3;
+    *resultadoDivision = auxiliarResultado4;
 
     return retorno;
 }
@@ -134,5 +140,27 @@ static float operacionResta(float* operando1, float* operando2)
 
     resultado=auxiliarOperando-auxiliarOperando2;
 
+    return resultado;
+}
+
+static float operacionMultiplicacion(float* operando1, float* operando2)
+{
+    float auxiliarOperando= *operando1;
+    float auxiliarOperando2= *operando2;
+    float resultado=0;
+    resultado = auxiliarOperando * auxiliarOperando2;
+    return resultado;
+}
+
+static float operacionDivision (float* operando1, float* operando2)
+{
+    float auxiliarOperando= *operando1;
+    float auxiliarOperando2= *operando2;
+    float resultado=0;
+    if (auxiliarOperando2==0){
+        printf("\nLa operacion de Division no pudo realizarse: (divisor es 0)\nPor favor reingrese los operandos e intente devuelta");
+    }else{
+        resultado = auxiliarOperando / auxiliarOperando2;
+    }
     return resultado;
 }
